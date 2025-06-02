@@ -21,16 +21,8 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py"
+args = "pip install -r requirements.txt && python main.py"
 waitForPort = 5000
 
 [deployment]
-run = ["sh", "-c", "python main.py"]
-
-[[ports]]
-localPort = 5000
-externalPort = 5000
-
-[[ports]]
-localPort = 8000
-externalPort = 80
+run = ["sh", "-c", "pip install -r requirements.txt && python main.py"]
