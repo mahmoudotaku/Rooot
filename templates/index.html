@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👿 Shaytan Downloader Pro</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">👿 Shaytan Downloader Pro</h1>
+            <p class="subtitle">محمل الفيديوهات الأقوى والأسرع</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    id="url" 
+                    type="text" 
+                    placeholder="أدخل رابط الفيديو من YouTube..."
+                    class="url-input"
+                >
+                <button onclick="fetchInfo()" class="fetch-btn">
+                    <i class="fas fa-search"></i>
+                    عرض الجودات
+                </button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>جاري تحليل الفيديو...</p>
+        </div>
+
+        <div id="error-section" class="error-section" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="error-message"></p>
+        </div>
+
+        <div id="download-section" class="download-section" style="display: none;">
+            <div class="video-info">
+                <img id="thumb" class="thumbnail" src="" alt="Video Thumbnail">
+                <div class="video-details">
+                    <h3 id="video-title" class="video-title"></h3>
+                    <div class="quality-selection">
+                        <label for="quality" class="quality-label">
+                            <i class="fas fa-video"></i>
+                            اختر جودة التحميل:
+                        </label>
+                        <select id="quality" class="quality-select">
+                            <option value="">اختر الجودة...</option>
+                        </select>
+                    </div>
+                    <button onclick="downloadVideo()" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        تحميل الفيديو
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="download-status" class="download-status" style="display: none;">
+            <div class="status-content">
+                <i class="fas fa-download"></i>
+                <p>جاري تحميل الفيديو...</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Shaytan Downloader - مطور بحب للمجتمع العربي</p>
+        <div class="footer-links">
+            <button onclick="cleanupFiles()" class="cleanup-btn">
+                <i class="fas fa-trash"></i>
+                تنظيف الملفات
+            </button>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
