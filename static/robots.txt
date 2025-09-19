@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# السماح لجوجل بوت بالوصول لجميع الصفحات
+User-agent: Googlebot
+Allow: /
+
+# منع الوصول لمجلد التحميلات
+Disallow: /downloads/
+
+# رابط خريطة الموقع
+Sitemap: https://{{domain}}/sitemap.xml

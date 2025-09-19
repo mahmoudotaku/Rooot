@@ -3,15 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👿 Shaytan Downloader Pro</title>
+    
+    <!-- SEO Meta Tags للبحث العربي -->
+    <title>👿 Shaytan Downloader Pro - تحميل فيديوهات يوتيوب بجودة عالية مجاناً</title>
+    <meta name="description" content="أفضل موقع لتحميل فيديوهات يوتيوب بجودة عالية HD مجاناً. تحميل سريع وآمن بدون برامج إضافية. دعم جميع الجودات 720p, 480p, 360p وصوت فقط.">
+    <meta name="keywords" content="تحميل يوتيوب, تحميل فيديو, يوتيوب داونلودر, تحميل فيديوهات مجانا, YouTube downloader, تحميل بجودة عالية">
+    <meta name="author" content="Shaytan Downloader Pro">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Arabic">
+    
+    <!-- Open Graph للمشاركة على وسائل التواصل -->
+    <meta property="og:title" content="👿 Shaytan Downloader Pro - تحميل فيديوهات يوتيوب">
+    <meta property="og:description" content="أفضل موقع لتحميل فيديوهات يوتيوب بجودة عالية مجاناً">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/static/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Shaytan Downloader Pro",
+        "description": "أداة تحميل فيديوهات يوتيوب بجودة عالية",
+        "url": "{{ request.url }}",
+        "applicationCategory": "Multimedia",
+        "operatingSystem": "Web Browser",
+        "inLanguage": "ar",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">👿 Shaytan Downloader Pro</h1>
-            <p class="subtitle">محمل الفيديوهات الأقوى والأسرع</p>
+            <h1 class="title">👿 Shaytan Downloader Pro - تحميل فيديوهات يوتيوب</h1>
+            <p class="subtitle">محمل الفيديوهات الأقوى والأسرع بجودة عالية مجاناً</p>
+            <h2 class="seo-heading">أفضل موقع لتحميل فيديوهات YouTube بدون برامج</h2>
         </header>
 
         <div class="input-section">
@@ -41,20 +81,21 @@
 
         <div id="download-section" class="download-section" style="display: none;">
             <div class="video-info">
-                <img id="thumb" class="thumbnail" src="" alt="Video Thumbnail">
+                <img id="thumb" class="thumbnail" src="" alt="صورة مصغرة للفيديو المراد تحميله من يوتيوب">
                 <div class="video-details">
                     <h3 id="video-title" class="video-title"></h3>
                     <div class="quality-selection">
                         <label for="quality" class="quality-label">
-                            <i class="fas fa-video"></i>
+                            <i class="fas fa-video" aria-hidden="true"></i>
                             اختر جودة التحميل:
                         </label>
                         <select id="quality" class="quality-select">
                             <option value="">اختر الجودة...</option>
                         </select>
                     </div>
-                    <button onclick="downloadVideo()" class="download-btn">
-                        <i class="fas fa-download"></i>
+                    
+                    <button onclick="downloadVideo()" class="download-btn" id="download-btn">
+                        <i class="fas fa-download" aria-hidden="true"></i>
                         تحميل الفيديو
                     </button>
                 </div>

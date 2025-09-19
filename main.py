@@ -95,6 +95,41 @@ def cleanup_downloads():
     except Exception as e:
         return {"error": f"Cleanup failed: {str(e)}"}
 
+@app.get("/robots.txt", response_class=HTMLResponse)
+def robots_txt(request: Request):
+    """Serve robots.txt for SEO"""
+    domain = request.headers.get("host", "localhost:5000")
+    robots_content = f"""User-agent: *
+Allow: /
+
+# السماح لجوجل بوت بالوصول لجميع الصفحات
+User-agent: Googlebot
+Allow: /
+
+# منع الوصول لمجلد التحميلات
+Disallow: /downloads/
+
+# رابط خريطة الموقع
+Sitemap: https://{domain}/sitemap.xml"""
+    return robots_content
+
+@app.get("/sitemap.xml", response_class=HTMLResponse)
+def sitemap_xml(request: Request):
+    """Serve sitemap.xml for SEO"""
+    domain = request.headers.get("host", "localhost:5000")
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://{domain}/</loc>
+    <lastmod>2025-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://{domain}/" />
+  </url>
+</urlset>"""
+    return sitemap_content
+
 @app.get("/health")
 def health_check():
     """Health check endpoint"""
