@@ -1,7 +1,7 @@
-modules = ["python-3.11"]
+modules = ["web", "nodejs-20", "python-3.11"]
 
 [nix]
-channel = "stable-24_05"
+channel = "stable-25_05"
 
 [workflows]
 runButton = "Project"
@@ -26,3 +26,6 @@ waitForPort = 5000
 
 [deployment]
 run = ["sh", "-c", "pip install -r requirements.txt && python main.py"]
+
+[agent]
+expertMode = true

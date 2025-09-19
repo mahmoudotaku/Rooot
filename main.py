@@ -101,6 +101,6 @@ def health_check():
     return {"status": "healthy", "service": "Shaytan Downloader"}
 
 if __name__ == "__main__":
-    # Configure for Railway.com deployment
-    port = int(os.environ.get("PORT", 8000))
+    # Configure for Replit deployment - always use port 5000 for frontend
+    port = int(os.environ.get("PORT", 5000))
     uvicorn.run(app, host="0.0.0.0", port=port)
